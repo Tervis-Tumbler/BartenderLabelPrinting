@@ -16,13 +16,13 @@ $LabelTypes = [pscustomobject][ordered]@{
 
 function Invoke-BartenderLabelPrint {
     param(
-        $OrderNumber,
+        [string]$OrderNumber,
         [ValidateSet("Tumbler","Accessory")]
-        $LabelType,
+        [string]$LabelType,
 
         [ValidateScript({$_ -in  $(Get-ZebraPrinters)})]
         [parameter(Mandatory)]
-        $Printer = $(Get-BartenderLabelPrintingDefaultPrinter)
+        [string]$Printer = $(Get-BartenderLabelPrintingDefaultPrinter)
     )
 
     $LabelTypes
